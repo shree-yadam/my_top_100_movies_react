@@ -1,11 +1,20 @@
 import './Login.css';
 
-function Login() {
+function Register() {
   return (
     <div class="form-div">
       <form class="form-signin">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Name"
+          />
+          <label for="floatingInput">Name</label>
+        </div>
         <div class="form-floating">
           <input
             type="email"
@@ -31,12 +40,11 @@ function Login() {
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+          Sign up
         </button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Register;
