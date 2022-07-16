@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     if(validator.isEmail(email)) {
       console.log("Validated");
-      axios.post("http://localhost:8080/api/users/login", {email, password})
+      axios.post("http://localhost:8080/users/login", {email, password})
       .then((res) => {
         console.log("Success");
         console.log(res.data);
