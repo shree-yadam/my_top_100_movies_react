@@ -1,39 +1,59 @@
+import { useState } from 'react';
 import './Login.css';
+import validator from 'validator';
+import axios from 'axios';
 
 function Login() {
-  return (
-    <div class="form-div">
-      <form class="form-signin">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-        <div class="form-floating">
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if(validator.isEmail(email)) {
+      console.log("Validated");
+      axios.post("http://localhost:8080/api/users/login", {email, password})
+      .then((res) => {
+        console.log("Success");
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  }
+
+  return (
+    <div className="form-div">
+      <form className="form-signin">
+        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div className="form-floating">
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
-          <label for="floatingInput">Email address</label>
+          <label htmlFor="floatingInput">Email address</label>
         </div>
-        <div class="form-floating">
+        <div className="form-floating">
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="floatingPassword"
             placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
-
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">
+        <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={onSubmit}>
           Sign in
         </button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
       </form>
     </div>
   );

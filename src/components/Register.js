@@ -2,44 +2,44 @@ import './Login.css';
 
 function Register() {
   return (
-    <div class="form-div">
-      <form class="form-signin">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <div className="form-div">
+      <form className="form-signin">
+        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
-        <div class="form-floating">
+        <div className="form-floating">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="floatingInput"
             placeholder="Name"
           />
-          <label for="floatingInput">Name</label>
+          <label htmlFor="floatingInput">Name</label>
         </div>
-        <div class="form-floating">
+        <div className="form-floating">
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
           />
-          <label for="floatingInput">Email address</label>
+          <label htmlFor="floatingInput">Email address</label>
         </div>
-        <div class="form-floating">
+        <div className="form-floating">
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="floatingPassword"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
 
-        <div class="checkbox mb-3">
+        <div className="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me" /> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">
+        <button className="w-100 btn btn-lg btn-primary" type="submit">
           Sign up
         </button>
       </form>
