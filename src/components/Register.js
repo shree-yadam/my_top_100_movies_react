@@ -1,6 +1,28 @@
 import './Login.css';
+import { useState } from 'react';
+import validator from 'validator';
+import axios from 'axios';
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if(validator.isEmail(email)) {
+      console.log("Validated");
+      axios.post("http://localhost:8080/users/register", {email, password, name})
+      .then((res) => {
+        console.log("Success");
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  }
+
   return (
     <div className="form-div">
       <form className="form-signin">
@@ -10,8 +32,9 @@ function Register() {
           <input
             type="text"
             className="form-control"
-            id="floatingInput"
             placeholder="Name"
+            value={name}
+            onChange={e => setName(e.target.value)}
           />
           <label htmlFor="floatingInput">Name</label>
         </div>
@@ -19,8 +42,9 @@ function Register() {
           <input
             type="email"
             className="form-control"
-            id="floatingInput"
             placeholder="name@example.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
@@ -28,18 +52,13 @@ function Register() {
           <input
             type="password"
             className="form-control"
-            id="floatingPassword"
             placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
           <label htmlFor="floatingPassword">Password</label>
         </div>
-
-        <div className="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button className="w-100 btn btn-lg btn-primary" type="submit">
+        <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={onSubmit}>
           Sign up
         </button>
       </form>
