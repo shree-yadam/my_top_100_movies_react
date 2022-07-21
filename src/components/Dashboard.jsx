@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MovieList from "./MovieList";
 
 function Dashboard() {
   const [movieList, setMovieList] = useState();
   useEffect(() => {
     axios.get("http://localhost:8080/movies")
     .then(res => {
-      setMovieList(res.data.results);
+      setMovieList(res.data);
     })
     .catch(err => {
       console.log(err);
@@ -15,7 +16,7 @@ function Dashboard() {
 
   return (
     <>
-    {movieList && movieList.map(m => <p>{m.title}</p>)}
+    {movieList && <MovieList movieList={movieList}/> }
     </>
   );
 }
