@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import NavHeader from './components/NavHeader';
+import Dashboard from './components/Dashboard';
 //import { Link } from "react-router-dom";
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
     <BrowserRouter>
       <NavHeader />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/" element={<Dashboard />} />
      </Routes>
     </BrowserRouter>
   );
