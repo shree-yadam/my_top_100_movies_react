@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function NavHeader() {
   return(
-    <nav className="navbar bg-light">
+    <nav className="navbar bg-dark bg-secondary text-white">
       <div className="container-fluid">
         <div className="navbar-brand">My Top 100 Movies</div>
         <div>

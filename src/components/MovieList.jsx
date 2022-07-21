@@ -6,7 +6,7 @@ function MovieList(props) {
 
   return (
     <>
-    {movieList && movieList.map(movie => <MovieListElement {...movie}/>)}
+    {movieList && movieList.map((movie, index) => <MovieListElement {...movie} key={index} />)}
     </>
   );
 }

@@ -1,12 +1,16 @@
+import "./MovieListElement.css";
+
 function MovieListElement(props) {
   const {title, img_url, description} = props;
 
   return(
-    <div>
-      <img alt="movie" src={img_url}/>
-      <div>
+    <div className="movie-div">
+      <div className="movie-img-div">
+        <img alt="movie" src={img_url} className="movie-img" />
+      </div>
+      <div className="movie-details">
         <h2>{title}</h2>
-        <p>{description}</p>
+        <h4>{description}</h4>
       </div>
     </div>
   );
