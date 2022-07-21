@@ -6,11 +6,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import NavHeader from './components/NavHeader';
 //import { Link } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
+      <NavHeader />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
