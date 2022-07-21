@@ -1,11 +1,17 @@
+import { Link } from "react-router-dom";
+
 function NavHeader() {
   return(
     <nav className="navbar bg-light">
       <div className="container-fluid">
-        <div className="navbar-brand">Navbar</div>
+        <div className="navbar-brand">My Top 100 Movies</div>
         <div>
-          <button className="btn btn-outline-success" type="submit">Register</button>
-          <button className="btn btn-outline-success" type="submit">Login</button>
+          <Link to="/register">
+            <button className="btn btn-outline-success" type="submit">Register</button>
+          </Link>
+          <Link to="/login">
+            <button className="btn btn-outline-success" type="submit">Login</button>
+          </Link>
         </div>
       </div>
     </nav>
